@@ -18,6 +18,7 @@ global:
       port: 80
 db:
   uri: ""
+  name: postgresql
 javaOpts:
   xmx: 512m
   xms: 512m

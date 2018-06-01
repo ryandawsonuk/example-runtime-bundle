@@ -46,7 +46,7 @@ spec:
         {{- if .Values.db.uri }}
           value: {{ .Values.db.uri }}
         {{ else }}
-          value: jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/postgres
+          value: jdbc:postgresql://{{ .Release.Name }}-{{ .Values.db.name }}:5432/postgres
         {{ end }}
         - name: ACT_RB_DB_USER
           value: {{ default "postgres" .Values.db.user }}
