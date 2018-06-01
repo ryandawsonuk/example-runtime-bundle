@@ -56,7 +56,7 @@ pipeline {
             }
           }
           container('maven') {
-            sh 'mvn clean deploy'
+            sh 'mvn clean deploy -DskipTests'
 
             sh 'export VERSION=`cat VERSION` && skaffold run -f skaffold.yaml'
 
