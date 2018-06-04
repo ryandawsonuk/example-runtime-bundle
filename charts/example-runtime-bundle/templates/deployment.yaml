@@ -67,6 +67,8 @@ spec:
           value: "false"
         - name: ACTIVITI_CLOUD_SERVICES_METADATA_EUREKA_DYNAMIC_ENABLED
           value: "false"
+        - name: ACT_CLOUD_CONFIG_SERVER_ENABLED
+          value: "false"
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
