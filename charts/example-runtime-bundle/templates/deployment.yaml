@@ -63,6 +63,10 @@ spec:
           value: {{ default "org.hibernate.dialect.PostgreSQLDialect" .Values.db.platform }}
         - name: EUREKA_CLIENT_ENABLED
           value: "false"
+        - name: ACTIVITI_CLOUD_SERVICES_METADATA_EUREKA_STATIC_ENABLED
+          value: "false"
+        - name: ACTIVITI_CLOUD_SERVICES_METADATA_EUREKA_DYNAMIC_ENABLED
+          value: "false"
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
