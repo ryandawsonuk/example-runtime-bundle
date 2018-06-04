@@ -14,7 +14,7 @@ global:
     url: ""
     name: keycloak
     service:
-      type: headless
+      type: http
       port: 80
 db:
   uri: ""
