@@ -28,7 +28,7 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 service:
-  name: example-runtime-bundle
+#  name: example-runtime-bundle
   type: ClusterIP
   externalPort: 80
   internalPort: 8081
