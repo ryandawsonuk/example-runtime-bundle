@@ -33,7 +33,7 @@ service:
   externalPort: 80
   internalPort: 8081
   annotations:
-    fabric8.io/expose: "true"
+    fabric8.io/expose: "false"
 resources:
   limits:
     cpu: 500m
