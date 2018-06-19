@@ -62,7 +62,7 @@ ingress:
   ## Set to true to enable ingress record generation
   enabled: true
 
-  path: /audit
+  path: /rb-my-app
 
   ## Set this to true in order to enable TLS on the ingress record
   tls: false
