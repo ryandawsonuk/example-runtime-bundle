@@ -22,7 +22,11 @@ global:
     hostName: "jx-staging-quickstart-http.jx-staging.activiti.envalfresco.com"
 db:
   uri: ""
-  name: postgresql
+  name: activitipostgresql
+
+activitipostgresql:
+   postgresPassword: activiti
+
 javaOpts:
   xmx: 512m
   xms: 512m
