@@ -24,7 +24,7 @@ clean:
 	rm -rf ${NAME}*.tgz
 
 release: clean
-    helm init
+	helm init
 	helm dependency build
 	helm lint
 	helm init --client-only
