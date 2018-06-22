@@ -44,7 +44,6 @@ service:
     fabric8.io/expose: "false"
 resources:
   limits:
-    cpu: 500m
     memory: 768Mi
   requests:
     cpu: 400m
