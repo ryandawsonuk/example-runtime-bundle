@@ -65,6 +65,7 @@ pipeline {
 
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
               sh "echo about to build docker image"
+              sh "export DOCKER_CONFIG=/tmp/"
               sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
               sh "docker build . -t activiti/rb-my-app:jx"
               sh "docker push activiti/rb-my-app:jx"
