@@ -65,11 +65,11 @@ pipeline {
 
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
               sh "echo about to login to docker"
-              sh "docker --config /tmp/ login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+              sh "docker --config /tmp/ login docker.io -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
               sh "echo about to build docker image"
               sh "docker build . -t activiti/rb-my-app:jx"
               sh "echo about to push docker image"
-              sh "docker --config /tmp/ login -u ${env.dockerHubUser} -p ${env.dockerHubPassword} && docker push docker.io/activiti/rb-my-app:jx"
+              sh "docker --config /tmp/ login docker.io -u ${env.dockerHubUser} -p ${env.dockerHubPassword} && docker push docker.io/activiti/rb-my-app:jx"
             }
           }
         }
