@@ -68,6 +68,7 @@ pipeline {
 //              sh "docker tag \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/$APP_NAME:\$(cat VERSION) docker.io/activiti/rb-my-app:\$(cat VERSION)"
 //              sh "export DOCKER_CONFIG=/tmp/ && docker push docker.io/activiti/rb-my-app:\$(cat VERSION)"
 //            }
+            sh "export DOCKER_CONFIG=/tmp/ && docker push docker.io/activiti/rb-my-app:\$(cat VERSION)"
           }
         }
       }
