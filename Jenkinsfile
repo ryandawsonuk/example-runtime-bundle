@@ -64,6 +64,7 @@ pipeline {
             sh "jx step post build --image \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/$APP_NAME:\$(cat VERSION)"
 
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
+              sh 'skaffold run -f skaffoldpublic.yaml'
               sh "echo about to login to docker"
               sh "docker --config /tmp/ login docker.io -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
               sh "echo about to build docker image"

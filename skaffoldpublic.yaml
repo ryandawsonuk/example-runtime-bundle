@@ -1,0 +1,31 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "docker.io/activiti/rb-my-app:jx"
+  artifacts:
+  - imageName: changeme
+    workspace: .
+    docker: {}
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+profiles:
+- name: dev
+  build:
+    tagPolicy:
+      envTemplate:
+        template: "docker.io/activiti/rb-my-app:jx"
+    artifacts:
+    - docker: {}
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: example-runtime-bundle
+        chartPath: charts/example-runtime-bundle
+        setValueTemplates:
+          image.repository: "docker.io/activiti/rb-my-app"
+          image.tag: "jx"
