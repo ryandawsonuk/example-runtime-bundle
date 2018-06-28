@@ -69,7 +69,7 @@ pipeline {
               sh "echo about to build docker image"
               sh "docker build . -t docker.io/activiti/rb-my-app:jx"
               sh "echo about to push docker image"
-              sh "docker --config /tmp/ login docker.io -u ${env.dockerHubUser} -p ${env.dockerHubPassword} && docker build . -t docker.io/activiti/rb-my-app:jx && docker push docker.io/activiti/rb-my-app:jx"
+              sh "docker push docker.io/activiti/rb-my-app:jx"
             }
           }
         }
