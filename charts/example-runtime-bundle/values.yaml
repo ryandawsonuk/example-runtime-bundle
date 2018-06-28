@@ -32,8 +32,8 @@ javaOpts:
   xms: 512m
   other: -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90
 image:
-  repository: draft
-  tag: dev
+  repository: 100.69.119.56:5000/ryandawsonuk/example-runtime-bundle
+  tag: 7.0.61
   pullPolicy: IfNotPresent
 service:
   name: rb-my-app
