@@ -64,10 +64,11 @@ pipeline {
             sh "jx step post build --image \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/$APP_NAME:\$(cat VERSION)"
 
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
-              sh "export DOCKER_CONFIG=/tmp/"
               sh "docker --config /tmp/ login docker.io -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
               sh "docker build . -t docker.io/activiti/rb-my-app:jx"
-              sh "docker push docker.io/activiti/rb-my-app:jx"
+              sh "ls /tmp/"
+              sh "whoami"
+              sh "export DOCKER_CONFIG=/tmp/ && docker push docker.io/activiti/rb-my-app:jx"
             }
           }
         }
