@@ -66,9 +66,12 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
               sh "docker --config /tmp/ login docker.io -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
 
-              sh 'export TAG=\$(docker images \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/example-runtime-bundle | awk `{print \$2}` | sort -r | head -n 2 | tail -n 1)'
-
+              sh "export TAG=\$(docker images \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/example-runtime-bundle | awk '{print \$2}' | sort -r | head -n 2 | tail -n 1)"
               sh "docker tag \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/$APP_NAME:\$TAG docker.io/activiti/rb-my-app:\$TAG"
+              sh """
+              export TAG=\$(docker images \$JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST:\$JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT/$ORG/example-runtime-bundle | awk '{print \$2}' | sort -r | head -n 2 | tail -n 1)
+              echo \$TAG
+              """.stripIndent()
               sh "export DOCKER_CONFIG=/tmp/ && docker push docker.io/activiti/rb-my-app:\$TAG"
             }
           }
