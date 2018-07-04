@@ -20,7 +20,7 @@ pipeline {
         steps {
           container('maven') {
             sh "mvn versions:set -DnewVersion=$PREVIEW_VERSION"
-            sh "mvn install"
+            sh "mvn clean install"
             sh 'export VERSION=$PREVIEW_VERSION && skaffold run -f skaffold.yaml'
 
             sh "jx step validate --min-jx-version 1.2.36"
