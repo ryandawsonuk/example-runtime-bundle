@@ -62,11 +62,10 @@ terminationGracePeriodSeconds: 20
 
 ## Allows the specification of additional environment variables
 extraEnv: |
-  # - name: ACT_KEYCLOAK_URL
-  #   valueFrom:
-  #     configMapKeyRef:
-  #       name: {{ .Release.Name }}-keycloak-http
-  #       key: expose-keycloak-service-key
+#  - name: ACTIVITI_CLOUD_SECURITY_GROUP_HR_RBMYAPP_POLICY_WRITE
+#    value: "SimpleProcess"
+#  - name: ACTIVITI_CLOUD_SECURITY_GROUP_TESTGROUP_RBMYAPP_POLICY_WRITE
+#    value: "*"
 
 ingress:
   ## Set to true to enable ingress record generation
