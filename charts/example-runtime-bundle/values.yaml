@@ -60,6 +60,13 @@ readinessProbe:
   timeoutSeconds: 3
 terminationGracePeriodSeconds: 20
 
+## Allows the specification of additional environment variables
+extraEnv: |
+  # - name: ACT_KEYCLOAK_URL
+  #   valueFrom:
+  #     configMapKeyRef:
+  #       name: {{ .Release.Name }}-keycloak-http
+  #       key: expose-keycloak-service-key
 
 ingress:
   ## Set to true to enable ingress record generation

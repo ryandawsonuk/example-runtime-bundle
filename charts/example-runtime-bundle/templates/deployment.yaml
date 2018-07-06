@@ -73,6 +73,9 @@ spec:
           value: "false"
         - name: ACT_CLOUD_CONFIG_SERVER_ENABLED
           value: "false"
+{{- with .Values.extraEnv }}
+{{ tpl . $ | indent 4 }}
+{{- end }}
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
