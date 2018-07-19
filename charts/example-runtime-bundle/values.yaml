@@ -20,6 +20,7 @@ global:
 db:
   uri: ""
   name: activitipostgresql
+  deployPostgres: false
 
 activitipostgresql:
    postgresPassword: activiti
@@ -33,7 +34,7 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 service:
-  name: rb-my-app
+  name: rb-bob-app
   type: ClusterIP
   externalPort: 80
   internalPort: 8080
