@@ -21,7 +21,8 @@ db:
   uri: ""
   name: activitipostgresql
   deployPostgres: false
-
+  port: 5432
+  
 activitipostgresql:
    postgresPassword: activiti
 
